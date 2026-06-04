@@ -18,8 +18,8 @@ export function Mission() {
       <LabGrid />
 
       <div className="section-max relative">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-24">
-          <div>
+        <div className="mission-layout-grid grid gap-12 min-w-0 lg:grid-cols-2 lg:items-center lg:gap-14 xl:gap-24">
+          <div className="min-w-0">
             <SectionLabel delay={0}>{about.label}</SectionLabel>
 
             <AOS animation="fade-up" delay={100}>
@@ -46,24 +46,13 @@ export function Mission() {
                 </AOS>
               ))}
             </div>
-
-            <dl className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {about.stats.map((stat, i) => (
-                <AOS key={stat.label} animation="zoom-in" delay={420 + i * 90}>
-                  <div className="lab-specimen-card px-5 py-6">
-                    <dt className="font-display text-xl font-semibold tracking-tight text-brand-deep md:text-2xl">
-                      {stat.value}
-                    </dt>
-                    <dd className="mt-2.5 font-sans text-[10px] font-medium uppercase tracking-[0.16em] text-ink-faint">
-                      {stat.label}
-                    </dd>
-                  </div>
-                </AOS>
-              ))}
-            </dl>
           </div>
 
-          <AOS animation="fade-left" delay={200} className="relative">
+          <AOS
+            animation="fade-left"
+            delay={200}
+            className="relative min-w-0 lg:max-[1380px]:mb-8 xl:mb-0"
+          >
             <ParallaxLayer speed={0.4} maxOffset={50} className="relative">
               <div className="image-premium lab-image-frame relative aspect-[4/5] bg-pearl-deep">
                 <Image
@@ -83,9 +72,9 @@ export function Mission() {
             <AOS
               animation="fade-up"
               delay={450}
-              className="absolute -bottom-6 -left-2 md:-left-6"
+              className="mission-float-card absolute -bottom-6 left-2 md:left-0 lg:max-[1380px]:left-3 xl:-left-6"
             >
-              <div className="lab-specimen-card border-l-4 border-l-brand px-7 py-6 md:px-8">
+              <div className="lab-specimen-card border-l-4 border-l-brand px-6 py-5 md:px-8 md:py-6">
                 <p className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-ink-faint">
                   Orders & COAs
                 </p>
@@ -95,6 +84,26 @@ export function Mission() {
               </div>
             </AOS>
           </AOS>
+
+          <dl className="mission-stats-row grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 lg:col-span-2 lg:mt-2">
+            {about.stats.map((stat, i) => (
+              <AOS
+                key={stat.label}
+                animation="zoom-in"
+                delay={420 + i * 90}
+                className="min-w-0"
+              >
+                <div className="lab-specimen-card h-full px-5 py-6">
+                  <dt className="font-display text-xl font-semibold tracking-tight text-brand-deep md:text-2xl">
+                    {stat.value}
+                  </dt>
+                  <dd className="mt-2.5 font-sans text-[10px] font-medium uppercase tracking-[0.16em] text-ink-faint">
+                    {stat.label}
+                  </dd>
+                </div>
+              </AOS>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

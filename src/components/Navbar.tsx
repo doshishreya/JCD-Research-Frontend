@@ -24,21 +24,73 @@ export function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled || menuOpen
-          ? "border-b border-line-soft/80 bg-canvas/90 shadow-[0_8px_40px_rgba(27,40,56,0.07)] backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
-      <nav className="section-padding section-max flex h-[76px] items-center justify-between md:h-[84px]">
+    <>
+      {/* Outside header: backdrop-blur on header would clip fixed children to bar height */}
+      <div
+        className={`mobile-nav-overlay fixed inset-0 z-[45] bg-canvas transition-opacity duration-500 md:hidden ${
+          menuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+        }`}
+        aria-hidden={!menuOpen}
+      >
+        <ul className="mobile-nav-list flex min-h-dvh flex-col items-center justify-center gap-8 px-6 pb-10 pt-[5.5rem]">
+          {navLinks.map((link, i) => (
+            <li
+              key={link.href}
+              className="opacity-0"
+              style={{
+                animation: menuOpen
+                  ? `hero-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${i * 80 + 100}ms forwards`
+                  : "none",
+              }}
+            >
+              <Link
+                href={link.href}
+                className="font-display text-3xl font-light tracking-tight text-ink"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+          <li
+            className="opacity-0"
+            style={{
+              animation: menuOpen
+                ? `hero-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${navLinks.length * 80 + 100}ms forwards`
+                : "none",
+            }}
+          >
+            <Link
+              href="#account"
+              className="btn-accent mt-4 inline-flex px-9 py-4 font-display text-[11px] font-semibold uppercase tracking-[0.14em]"
+              onClick={() => setMenuOpen(false)}
+            >
+              Account
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+          menuOpen
+            ? "border-b border-line-soft/80 bg-canvas shadow-[0_8px_40px_rgba(27,40,56,0.07)]"
+            : scrolled
+              ? "border-b border-line-soft/80 bg-canvas/90 shadow-[0_8px_40px_rgba(27,40,56,0.07)] backdrop-blur-xl"
+              : "border-b border-transparent bg-transparent"
+        }`}
+      >
+      <nav className="navbar-inner section-padding section-max flex min-h-[5.25rem] items-center justify-between py-3.5 md:min-h-[5.75rem] md:py-4">
         <Link
           href="/"
-          className="group flex flex-col gap-1 transition-opacity hover:opacity-85"
+          className="navbar-brand group flex shrink-0 flex-col justify-center gap-1.5 py-1 transition-opacity hover:opacity-85"
         >
           <JcdLogo
             variant={scrolled || menuOpen ? "onLight" : "onDark"}
             priority
+            className="mt-0.5 block h-8 w-auto md:mt-1 md:h-9"
           />
           <span
             className={`font-sans text-[10px] font-medium uppercase tracking-[0.2em] transition-colors duration-500 ${
@@ -80,7 +132,7 @@ export function Navbar() {
           type="button"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
-          className={`relative z-10 flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full transition-colors md:hidden ${
+          className={`menu-toggle relative z-10 flex h-11 w-11 items-center justify-center rounded-full transition-colors md:hidden ${
             scrolled || menuOpen
               ? "bg-pearl text-ink"
               : "bg-canvas/15 text-canvas backdrop-blur-sm"
@@ -88,62 +140,32 @@ export function Navbar() {
           onClick={() => setMenuOpen((o) => !o)}
         >
           <span
-            className={`block h-px w-5 bg-current transition-transform duration-300 ${
-              menuOpen ? "translate-y-[3.5px] rotate-45" : ""
+            aria-hidden
+            className={`menu-toggle__bar absolute left-1/2 block h-[2px] w-5 -translate-x-1/2 rounded-full bg-current transition-all duration-300 ease-out ${
+              menuOpen
+                ? "translate-y-0 rotate-45"
+                : "-translate-y-[7px] rotate-0"
             }`}
           />
           <span
-            className={`block h-px w-5 bg-current transition-opacity duration-300 ${
-              menuOpen ? "opacity-0" : ""
+            aria-hidden
+            className={`menu-toggle__bar absolute left-1/2 block h-[2px] w-5 -translate-x-1/2 rounded-full bg-current transition-all duration-300 ease-out ${
+              menuOpen
+                ? "translate-y-0 scale-x-0 opacity-0"
+                : "translate-y-0 opacity-100"
             }`}
           />
           <span
-            className={`block h-px w-5 bg-current transition-transform duration-300 ${
-              menuOpen ? "-translate-y-[3.5px] -rotate-45" : ""
+            aria-hidden
+            className={`menu-toggle__bar absolute left-1/2 block h-[2px] w-5 -translate-x-1/2 rounded-full bg-current transition-all duration-300 ease-out ${
+              menuOpen
+                ? "translate-y-0 -rotate-45"
+                : "translate-y-[7px] rotate-0"
             }`}
           />
         </button>
       </nav>
-
-      <div
-        className={`fixed inset-0 z-40 rounded-none bg-canvas transition-opacity duration-500 md:hidden ${
-          menuOpen
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-        }`}
-        aria-hidden={!menuOpen}
-      >
-        <ul className="flex h-full flex-col items-center justify-center gap-8">
-          {navLinks.map((link, i) => (
-            <li
-              key={link.href}
-              className="opacity-0"
-              style={{
-                animation: menuOpen
-                  ? `hero-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${i * 80 + 100}ms forwards`
-                  : "none",
-              }}
-            >
-              <Link
-                href={link.href}
-                className="font-display text-3xl font-light tracking-tight text-ink"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <Link
-              href="#account"
-              className="btn-accent mt-4 inline-flex px-9 py-4 font-display text-[11px] font-semibold uppercase tracking-[0.14em]"
-              onClick={() => setMenuOpen(false)}
-            >
-              Account
-            </Link>
-          </li>
-        </ul>
-      </div>
     </header>
+    </>
   );
 }

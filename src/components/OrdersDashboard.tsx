@@ -52,8 +52,8 @@ export function OrdersDashboard() {
       <LabGrid />
 
       <div className="section-max relative">
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-20">
-          <div className="lg:col-span-4">
+        <div className="orders-layout-grid grid min-w-0 gap-14 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-12 xl:gap-x-20">
+          <div className="min-w-0 lg:col-span-5 xl:col-span-4">
             <SectionLabel delay={0}>{ordersDashboardSection.label}</SectionLabel>
 
             <AOS animation="fade-up" delay={100}>
@@ -89,15 +89,19 @@ export function OrdersDashboard() {
             </ul>
           </div>
 
-          <AOS animation="fade-up" delay={200} className="lg:col-span-8">
-            <div className="lab-specimen-card overflow-hidden p-0">
-              <div className="flex items-center justify-between border-b border-line-soft bg-pearl/80 px-6 py-4 md:px-8">
+          <AOS
+            animation="fade-up"
+            delay={200}
+            className="min-w-0 lg:col-span-7 xl:col-span-8"
+          >
+            <div className="orders-dashboard-panel lab-specimen-card min-w-0 overflow-hidden p-0">
+              <div className="orders-panel-header flex flex-col gap-2 border-b border-line-soft bg-pearl/80 px-5 py-4 sm:flex-row sm:items-center sm:justify-between md:px-6 xl:px-8">
                 <p className="font-sans text-[11px] font-medium uppercase tracking-[0.16em] text-ink-faint">
                   Dashboard preview
                 </p>
                 <Link
                   href="#account"
-                  className="font-sans text-[12px] font-medium text-brand-deep hover:underline"
+                  className="shrink-0 font-sans text-[12px] font-medium text-brand-deep hover:underline"
                 >
                   Sign in to view live data →
                 </Link>
@@ -110,23 +114,23 @@ export function OrdersDashboard() {
                     <li key={order.id}>
                       <button
                         type="button"
-                        className="flex w-full flex-col gap-3 px-6 py-5 text-left transition-colors hover:bg-brand-glow/30 md:flex-row md:items-center md:justify-between md:px-8"
+                        className="orders-order-trigger flex w-full flex-col gap-3 px-5 py-4 text-left transition-colors hover:bg-brand-glow/30 sm:px-6 sm:py-5 xl:flex-row xl:items-center xl:justify-between xl:px-8"
                         onClick={() =>
                           setExpanded(isOpen ? null : order.id)
                         }
                         aria-expanded={isOpen}
                       >
-                        <div>
+                        <div className="min-w-0">
                           <p className="font-mono text-[12px] font-medium text-brand-deep">
                             {order.id}
                           </p>
-                          <p className="mt-1 font-sans text-[13px] text-ink-muted">
+                          <p className="mt-1 font-sans text-[12px] leading-snug text-ink-muted sm:text-[13px]">
                             {order.compounds} compound
                             {order.compounds > 1 ? "s" : ""} · {order.tests}{" "}
                             tests · {order.complete}/{order.tests} complete
                           </p>
                         </div>
-                        <div className="flex flex-wrap items-center gap-3">
+                        <div className="orders-order-meta flex flex-wrap items-center gap-2 sm:gap-3">
                           <span className="rounded-full bg-brand-glow px-3 py-1 font-sans text-[11px] font-medium uppercase tracking-[0.1em] text-brand-deep">
                             {order.status}
                           </span>
@@ -143,11 +147,11 @@ export function OrdersDashboard() {
                       </button>
 
                       {isOpen && (
-                        <ul className="border-t border-line-soft bg-canvas/50 px-6 py-4 md:px-8">
+                        <ul className="border-t border-line-soft bg-canvas/50 px-5 py-3 sm:px-6 sm:py-4 xl:px-8">
                           {order.analyses.map((a) => (
                             <li
                               key={a.name}
-                              className="flex flex-col gap-2 border-b border-line-soft/60 py-4 last:border-0 sm:flex-row sm:items-center sm:justify-between"
+                              className="orders-analysis-row flex flex-col gap-2 border-b border-line-soft/60 py-4 last:border-0 xl:flex-row xl:items-center xl:justify-between"
                             >
                               <div>
                                 <p className="font-display text-[15px] font-medium text-ink">

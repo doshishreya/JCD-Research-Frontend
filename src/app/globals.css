@@ -85,26 +85,131 @@ body {
 
 /* Equal vertical rhythm for all page sections (below hero) */
 .section-spacing {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 @media (min-width: 768px) {
   .section-spacing {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-spacing {
     padding-top: 5rem;
-    padding-bottom:5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* Medium desktop: tighten layouts between 1024px and 1380px */
+@media (min-width: 1024px) and (max-width: 1380px) {
+  .section-padding {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .mission-layout-grid {
+    gap: 2.75rem;
+    column-gap: 2.25rem;
+  }
+
+  .mission-stats-row {
+    gap: 0.875rem;
+    margin-top: 0.25rem;
+  }
+
+  .mission-stats-row .lab-specimen-card {
+    padding: 1.2rem 1rem;
+  }
+
+  .mission-stats-row dt {
+    font-size: 1.2rem;
+  }
+
+  .mission-float-card .lab-specimen-card {
+    padding: 1.15rem 1.25rem;
+  }
+
+  .mission-float-card p:last-child {
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+
+  .testing-cards-grid {
+    gap: 1.125rem;
+    margin-top: 3rem;
+  }
+
+  .testing-service-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .testing-service-card__meta {
+    min-height: 2.4rem;
+  }
+
+  .testing-service-card__tags {
+    min-height: 2.25rem;
+    align-content: flex-start;
+  }
+
+  .testing-service-card__footer {
+    padding-top: 1.35rem;
+  }
+
+  .orders-layout-grid {
+    column-gap: 1.5rem;
+    row-gap: 2.25rem;
+  }
+
+  .orders-panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .orders-order-trigger {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .orders-order-meta {
+    width: 100%;
+  }
+
+  .orders-analysis-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 .section-max {
   @apply mx-auto max-w-7xl;
+}
+
+.mobile-nav-overlay {
+  min-height: 100dvh;
+  height: 100dvh;
+  overscroll-behavior: contain;
+}
+
+.mobile-nav-list {
+  -webkit-overflow-scrolling: touch;
+}
+
+.navbar-inner {
+  align-items: center;
+}
+
+.navbar-brand {
+  max-width: min(100%, 14rem);
+}
+
+@media (min-width: 768px) {
+  .navbar-brand {
+    max-width: min(100%, 16rem);
+  }
 }
 
 .text-balance {

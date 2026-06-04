@@ -26,7 +26,7 @@ export function JcdLogo({
       width={LOGO_WIDTH}
       height={LOGO_HEIGHT}
       priority={priority}
-      className={`h-9 w-auto object-contain object-left md:h-10 ${className}`}
+      className={`block h-9 w-auto shrink-0 object-contain object-left md:h-10 ${className}`}
     />
   );
 }
