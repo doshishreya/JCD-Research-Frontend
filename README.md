@@ -49,5 +49,3 @@ npm start
 ## Notes
 
 - Frontend only — no backend, auth, or live orders API
-- Loader and hero scroll morph unchanged unless requested
-- Contact: `admin@jcdresearch.com`
