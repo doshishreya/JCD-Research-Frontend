@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans, Poppins } from "next/font/google";
+import { brandAssets } from "@/lib/content";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -28,6 +29,11 @@ export const metadata: Metadata = {
     "JCD Research",
     "jcdresearch.com",
   ],
+  icons: {
+    icon: brandAssets.faviconWhite,
+    shortcut: brandAssets.faviconWhite,
+    apple: brandAssets.faviconWhite,
+  },
 };
 
 export default function RootLayout({

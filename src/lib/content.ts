@@ -7,6 +7,14 @@ export const site = {
   shipTo: "15751 Graham St",
 } as const;
 
+/** Brand marks in /public — white variants for dark backgrounds, black for light. */
+export const brandAssets = {
+  logoBlack: "/JCD logo black.png",
+  logoWhite: "/JCD logo white.png",
+  faviconWhite: "/JCD favicon white.png",
+  faviconBlack: "/JCD favicon black.png",
+} as const;
+
 export const navLinks = [
   { label: "Testing", href: "#testing" },
   { label: "Orders", href: "#orders" },

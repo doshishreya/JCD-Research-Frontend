@@ -3,7 +3,7 @@ import { footer, navLinks, site } from "@/lib/content";
 
 const adminMailto = `mailto:${site.email}`;
 import { AOS } from "@/components/ui/AOS";
-import { LabIcon } from "@/components/ui/LabIcon";
+import { JcdLogo } from "@/components/ui/JcdLogo";
 
 export function Footer() {
   return (
@@ -12,14 +12,7 @@ export function Footer() {
         <div className="flex flex-col gap-14 lg:flex-row lg:items-start lg:justify-between">
           <AOS animation="fade-up" delay={0}>
             <div className="max-w-sm">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-canvas/10 text-brand-light">
-                  <LabIcon name="microscope" className="h-5 w-5" />
-                </div>
-                <p className="font-display text-2xl font-semibold tracking-tight text-canvas">
-                  {site.name}
-                </p>
-              </div>
+              <JcdLogo variant="onDark" className="md:h-11" />
               <p className="mt-4 font-sans text-[14px] leading-relaxed text-canvas/55">
                 {site.tagline}
               </p>

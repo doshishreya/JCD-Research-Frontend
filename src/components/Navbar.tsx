@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { JcdLogo } from "@/components/ui/JcdLogo";
 import { navLinks, site } from "@/lib/content";
 
 export function Navbar() {
@@ -33,15 +34,12 @@ export function Navbar() {
       <nav className="section-padding section-max flex h-[76px] items-center justify-between md:h-[84px]">
         <Link
           href="/"
-          className="group flex flex-col gap-0.5 transition-opacity hover:opacity-85"
+          className="group flex flex-col gap-1 transition-opacity hover:opacity-85"
         >
-          <span
-            className={`font-display text-[1.15rem] font-semibold tracking-tight transition-colors duration-500 md:text-[1.3rem] ${
-              scrolled || menuOpen ? "text-ink" : "text-canvas"
-            }`}
-          >
-            {site.name}
-          </span>
+          <JcdLogo
+            variant={scrolled || menuOpen ? "onLight" : "onDark"}
+            priority
+          />
           <span
             className={`font-sans text-[10px] font-medium uppercase tracking-[0.2em] transition-colors duration-500 ${
               scrolled || menuOpen ? "text-ink-faint" : "text-canvas/65"

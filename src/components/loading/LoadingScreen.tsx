@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { lottieAssets } from "@/lib/lottie-assets";
+import { JcdLogo } from "@/components/ui/JcdLogo";
 import { LottieAnimation } from "@/components/ui/LottieAnimation";
 import { LoaderScene3D } from "@/components/loading/LoaderScene3D";
 
@@ -112,7 +113,9 @@ export function LoadingScreen({ progress, exiting }: LoadingScreenProps) {
           </div>
         </div>
 
-        <p className="loader-brand font-display">JCD Research</p>
+        <div className="loader-brand flex justify-center">
+          <JcdLogo variant="onDark" className="h-11 md:h-12" />
+        </div>
         <p className="loader-tagline font-sans">
           Precision science · Measurable outcomes
         </p>
