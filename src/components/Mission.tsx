@@ -3,11 +3,7 @@ import { about } from "@/lib/content";
 import { AOS } from "@/components/ui/AOS";
 import { LabGrid } from "@/components/ui/LabGrid";
 import { LabIcon } from "@/components/ui/LabIcon";
-import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-
-const LAB_IMAGE =
-  "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=1200";
 
 export function Mission() {
   return (
@@ -53,24 +49,9 @@ export function Mission() {
             delay={200}
             className="relative min-w-0 lg:max-[1380px]:mb-8 xl:mb-0"
           >
-            {/* <ParallaxLayer speed={0.4} maxOffset={50} className="relative">
-              <div className="image-premium lab-image-frame relative aspect-[4/5] bg-pearl-deep">
-                <Image
-                  src={LAB_IMAGE}
-                  alt="Scientist conducting analysis in a modern research laboratory"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-[1.2s] ease-out hover:scale-[1.04]"
-                />
-                <div className="absolute inset-0 rounded-[inherit] bg-gradient-to-t from-ink/40 via-transparent to-ink/10" />
-                <div className="absolute left-5 top-5 rounded-full border border-canvas/25 bg-ink/50 px-4 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-canvas backdrop-blur-md">
-                  Peptide laboratory
-                </div>
-              </div>
-            </ParallaxLayer> */}
             <div className="image-premium lab-image-frame relative aspect-[4/5] bg-pearl-deep">
               <Image
-                src={LAB_IMAGE}
+                src={about.labImage}
                 alt="Scientist conducting analysis in a modern research laboratory"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

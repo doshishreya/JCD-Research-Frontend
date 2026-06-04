@@ -49,6 +49,9 @@ export const about = {
     { value: "Researchers", label: "Account sign-up" },
   ],
   badge: "Clinical · Light · Results-first",
+  /** About section — swap for `/your-image.jpg` in public when you have brand photography */
+  labImage:
+    "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=1200",
 } as const;
 
 export const testingSection = {
