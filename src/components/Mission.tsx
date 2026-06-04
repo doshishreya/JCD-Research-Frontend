@@ -53,7 +53,7 @@ export function Mission() {
             delay={200}
             className="relative min-w-0 lg:max-[1380px]:mb-8 xl:mb-0"
           >
-            <ParallaxLayer speed={0.4} maxOffset={50} className="relative">
+            {/* <ParallaxLayer speed={0.4} maxOffset={50} className="relative">
               <div className="image-premium lab-image-frame relative aspect-[4/5] bg-pearl-deep">
                 <Image
                   src={LAB_IMAGE}
@@ -67,12 +67,25 @@ export function Mission() {
                   Peptide laboratory
                 </div>
               </div>
-            </ParallaxLayer>
+            </ParallaxLayer> */}
+            <div className="image-premium lab-image-frame relative aspect-[4/5] bg-pearl-deep">
+              <Image
+                src={LAB_IMAGE}
+                alt="Scientist conducting analysis in a modern research laboratory"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-transform duration-[1.2s] ease-out hover:scale-[1.04]"
+              />
+              <div className="absolute inset-0 rounded-[inherit] bg-gradient-to-t from-ink/40 via-transparent to-ink/10" />
+              <div className="absolute left-5 top-5 rounded-full border border-canvas/25 bg-ink/50 px-4 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-canvas backdrop-blur-md">
+                Peptide laboratory
+              </div>
+            </div>
 
             <AOS
               animation="fade-up"
               delay={450}
-              className="mission-float-card absolute -bottom-6 left-2 md:left-0 lg:max-[1380px]:left-3 xl:-left-6"
+              className="mission-float-card absolute -bottom-6 left-0 md:left-2 md:left-0 lg:max-[1380px]:left-3 xl:-left-6"
             >
               <div className="lab-specimen-card border-l-4 border-l-brand px-6 py-5 md:px-8 md:py-6">
                 <p className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-ink-faint">

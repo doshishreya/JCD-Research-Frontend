@@ -48,7 +48,7 @@ export function computeHeroMorph(
   const radiusMax = viewportWidth >= 1280 ? 52 : viewportWidth >= 768 ? 44 : 32;
   const radiusMin = viewportWidth >= 768 ? 20 : 0;
 
-  const maxWidthTarget = Math.min(1200, viewportWidth - insetMax * 2);
+  const maxWidthTarget = Math.min(1280, viewportWidth - insetMax * 2);
 
   const radiusPx = lerp(radiusMin, radiusMax, progress);
 
